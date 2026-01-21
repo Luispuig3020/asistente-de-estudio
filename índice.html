@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Puig Fotografía - AI Studio Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --oro: #D4AF37; --plata: #C0C0C0; --negro: #050505; }
+        body { background-color: var(--negro); color: white; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .gold-text { color: var(--oro); }
+        .silver-text { color: var(--plata); }
+        .card { background: #0f0f0f; border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 4px; padding: 20px; margin-bottom: 15px; }
+        .nav-btn { display: flex; flex-direction: column; align-items: center; gap: 4px; color: #666; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; background: none; border: none; }
+        .nav-btn.active { color: var(--oro); }
+        .hidden { display: none; }
+        .progress-bar { background: linear-gradient(90deg, #D4AF37, #C0C0C0); height: 3px; border-radius: 2px; }
+        .mic-active { animation: pulse 1.5s infinite; background: #ff4b2b !important; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); } 70% { box-shadow: 0 0 0 15px rgba(212,175,55,0); } 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); } }
+    </style>
+</head>
+<body class="pb-32">
+
+    <!-- CABECERA FIJA -->
+    <header class="pt-8 pb-4 text-center sticky top-0 bg-[#050505] z-50 border-b border-white/5">
+        <img src="https://i.ibb.co/MkC0LSDQ/logo.png" alt="Luis Puig" class="w-28 mx-auto mb-2">
+        <p class="text-[7px] tracking-[0.5em] silver-text uppercase font-light">AI Studio Assistant</p>
+    </header>
+
+    <main class="max-w-md mx-auto p-5">
+        
+        <!-- SECCIÓN 1: INICIO Y CLIMA -->
+        <section id="view-home">
+            <div class="card flex justify-between items-center">
+                <div>
+                    <p class="text-[9px] uppercase silver-text mb-1 tracking-widest">Estado Exterior</p>
+                    <p class="text-xl gold-text font-bold uppercase tracking-tighter">☀ 22°C - LUZ ÓPTIMA</p>
+                    <p class="text-[9px] text-gray-500 mt-1 italic uppercase">✓ Recomendado: Difusor para retratos</p>
+                </div>
+                <i data-lucide="sun" class="gold-text opacity-40"></i>
+            </div>
+            <div class="card">
+                <h3 class="serif gold-text mb-4 uppercase text-sm tracking-widest">Próxima Sesión</h3>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <p class="text-lg font-bold">Boda Elena & Javier</p>
+                        <p class="text-[10px] silver-text uppercase">17:00H - Madrid</p>
+                    </div>
+                    <a href="https://wa.me/34620890554" class="p-2 border border-white/10"><i data-lucide="message-circle" class="w-4 h-4 gold-text"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: AGENDA CATEGORIZADA -->
+        <section id="view-agenda" class="hidden">
+            <h2 class="serif gold-text text-xl mb-6 uppercase tracking-widest text-center">Agenda</h2>
+            <div class="space-y-4">
+                <div class="card border-l-4 border-[#D4AF37]">
+                    <p class="text-[10px] gold-text font-bold uppercase">Sesión de Fotos</p>
+                    <p class="text-sm font-bold">Retrato Moda - Retiro</p>
+                    <p class="text-[10px] text-gray-500 uppercase mt-1">Jueves - 11:00H</p>
+                </div>
+                <div class="card border-l-4 border-gray-600">
+                    <p class="text-[10px] silver-text font-bold uppercase">Cita Médica</p>
+                    <p class="text-sm">Revisión General</p>
+                    <p class="text-[10px] text-gray-500 uppercase mt-1">Viernes - 09:30H</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: SPOTS Y EDICIÓN -->
+        <section id="view-studio" class="hidden">
+            <h2 class="serif gold-text text-xl mb-6 uppercase tracking-widest text-center">Studio</h2>
+            <div class="card">
+                <p class="text-[10px] gold-text uppercase mb-4 tracking-widest">Progreso de Edición</p>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-[10px] mb-1 uppercase"><span>Boda Marta</span><span>85%</span></div>
+                        <div class="w-full bg-white/5 h-[3px] rounded-full overflow-hidden"><div class="progress-bar" style="width: 85%"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <p class="text-[10px] gold-text uppercase mb-4 tracking-widest">Mis Spots Golden</p>
+                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                    <div class="bg-black p-2 border border-white/5">✓ Acantilado Norte</div>
+                    <div class="bg-black p-2 border border-white/5">✓ Loft Industrial</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: CLIENTES E INGRESOS -->
+        <section id="view-money" class="hidden">
+            <h2 class="serif gold-text text-xl mb-6 uppercase tracking-widest text-center">Finanzas</h2>
+            <div class="card text-center py-8">
+                <p class="text-[10px] silver-text uppercase tracking-widest mb-2">Ingresos Mes Actual</p>
+                <p class="text-4xl serif gold-text tracking-tighter">4.250€</p>
+            </div>
+            <div class="card">
+                <h3 class="serif text-xs gold-text mb-4 uppercase">Checklist Pre-Sesión</h3>
+                <div class="space-y-3 text-[10px] silver-text uppercase">
+                    <label class="flex items-center gap-3"><input type="checkbox" checked class="accent-[#D4AF37]"> Baterías Cargadas</label>
+                    <label class="flex items-center gap-3"><input type="checkbox" class="accent-[#D4AF37]"> SD Formateadas</label>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTÓN VOZ NLP -->
+    <div class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50">
+        <button id="voice-btn" class="w-16 h-16 gold-bg rounded-full flex items-center justify-center shadow-2xl border-4 border-black transition-transform active:scale-90">
+            <i data-lucide="mic" class="w-6 h-6 text-black"></i>
+        </button>
+    </div>
+
+    <!-- MENÚ NAVEGACIÓN -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-white/10 px-6 py-4 flex justify-between items-center z-50">
+        <button onclick="show('home')" id="nav-home" class="nav-btn active"><i data-lucide="home" class="w-5 h-5"></i><span>Inicio</span></button>
+        <button onclick="show('agenda')" id="nav-agenda" class="nav-btn"><i data-lucide="calendar" class="w-5 h-5"></i><span>Agenda</span></button>
+        <button onclick="show('studio')" id="nav-studio" class="nav-btn"><i data-lucide="camera" class="w-5 h-5"></i><span>Studio</span></button>
+        <button onclick="show('money')" id="nav-money" class="nav-btn"><i data-lucide="dollar-sign" class="w-5 h-5"></i><span>Dinero</span></button>
+    </nav>
+
+    <script>
+        lucide.createIcons();
+        function show(v) {
+            document.querySelectorAll('section').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('view-'+v).classList.remove('hidden');
+            document.getElementById('nav-'+v).classList.add('active');
+            lucide.createIcons();
+        }
+
+        // Voz (NLP)
+        const btn = document.getElementById('voice-btn');
+        const Speech = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if(Speech){
+            const rec = new Speech();
+            rec.lang = 'es-ES';
+            btn.onclick = () => { rec.start(); btn.classList.add('mic-active'); };
+            rec.onresult = (e) => {
+                const t = e.results[0][0].transcript.toLowerCase();
+                btn.classList.remove('mic-active');
+                if(t.includes("anota sesión")) alert("Luis, he anotado la sesión: " + t);
+                else if(t.includes("cumpleaños")) alert("Cumpleaños guardado.");
+                else alert("Has dicho: " + t);
+            };
+            rec.onerror = () => btn.classList.remove('mic-active');
+        }
+    </script>
+</body>
+</html>
